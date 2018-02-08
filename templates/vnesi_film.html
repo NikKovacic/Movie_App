@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Add Movie{% endblock %}
+
+{% block tab %}
+<ul class="nav navbar-nav">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li class="active"><a href="/vnesi_film">Add Movie</a></li>
+    <li><a href="/seznam_filmov">My Movie List</a></li>
+</ul>
+{% endblock %}
+
+{% block vsebina %}
+{% if logiran %}
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page_title">Add Movie</h1>
+        </div>
+        <div class="row">
+            <p>Hello {{ user.nickname() }} in case you want to save movie information to your list, please complete the
+            form below. Once the form has been completed and confirmed, it is automatically saved to your movie list.
+            Now you can access these data anytime and anywhere.</p>
+        </div>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="col-sm-9">
+                <form method="post" action="/vnesi_film">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="form_text">Movie title:</p>
+                        </div>
+                        <div class="col-sm-10">
+                            <input name="naslov_filma" type="text" placeholder="Title">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="form_text">Release year:</p>
+                        </div>
+                        <div class="col-sm-10">
+                            <input name="leto" placeholder="Year">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="form_text">Grade:</p>
+                        </div>
+                        <div class="col-sm-10">
+                            <select name="ocena">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="form_text">IMDb link:</p>
+                        </div>
+                        <div class="col-sm-10">
+                            <input name="imdb_link" placeholder="IMDb link">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="form_text">Trailer link:</p>
+                        </div>
+                        <div class="col-sm-10">
+                            <input name="trailer_link" placeholder="Trailer link">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="form_text">Comment:</p>
+                        </div>
+                        <div class="col-sm-10">
+                            <textarea name="komentar" rows="6" cols="22">Comment</textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <p class="form_text">Image:</p>
+                        </div>
+                        <div class="col-sm-10">
+                            <input name="slika_url" placeholder="Image url">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <button class="green_but" type="submit">Add to list</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="container">
+        <h4>You must be logged in to add a movie to your list.</h4>
+    </div>
+
+
+{% endif %}
+{% endblock %}
+

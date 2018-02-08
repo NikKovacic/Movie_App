@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block tab %}
+<ul class="nav navbar-nav">
+    <li class="active"><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/vnesi_film">Add Movie</a></li>
+    <li><a href="/seznam_filmov">My Movie List</a></li>
+</ul>
+{% endblock %}
+
+{% block vsebina %}
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page_title">Home Page</h1>
+        </div>
+        <div class="row">
+            <p>We often find ourselves in a situation where we can not remember the title of the movie that we have
+            watched in the past. We often want to look at it again because we enjoyed watching it, but we can't find it
+            anywhere on the web. That we are going to remember every movie we've ever seen, we're introducing to you
+            online application Movie App. This app gives you a chance to easily add movie information and displays them
+            transparently on your personal list. Now you can easily find the title of the movie, see the relase year,
+            read the comments you wrote, the rating you provided and simply trough the link see the movie trailer or the
+            IMDb page.</p>
+        </div>
+        <br/>
+    </div>
+    <br/>
+    <div class="back-color">
+        <div class="container">
+            <div class="page-header">
+                <h4>About:</h4>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img class="img-responsive haboutpic" src="assets/img/icon/intext_icons/aboutus.png">
+                </div>
+                <div class="col-sm-9">
+                    <p>If you would like to find out more about how to use this web application and who created it use
+                    navigation on the top of the page or below to go on 'About' page.</p>
+                </div>
+            </div>
+            <div class="page-header">
+                <h4>Add Movie:</h4>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img class="img-responsive" src="assets/img/icon/intext_icons/addhome.png">
+                </div>
+                <div class="col-sm-9">
+                    <p>If you want to add a movie to your list navigate yourself on a 'Add Movie' site. There you can
+                    provide information about a movie that you will be able to access on 'My Movie List' site.</p>
+                </div>
+            </div>
+            <div class="page-header">
+                <h4>My Movie List:</h4>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img class="img-responsive" src="assets/img/icon/intext_icons/seehome.png">
+                </div>
+                <p>And last if you want to see your personal movie list go on 'My Movie List' site. There you can see
+                all the movies you've added to the list. By clicking on a movie from the list you can access to all
+                information you have given on the entry. On this page you can also edit and delete movies from your list.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

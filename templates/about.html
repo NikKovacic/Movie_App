@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block tab %}
+<ul class="nav navbar-nav">
+    <li><a href="/">Home</a></li>
+    <li class="active"><a href="/about">About</a></li>
+    <li><a href="/vnesi_film">Add Movie</a></li>
+    <li><a href="/seznam_filmov">My Movie List</a></li>
+</ul>
+{% endblock %}
+
+{% block vsebina %}
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page_title">About Movie App</h1>
+        </div>
+        <br/>
+        <div class="row">
+            <p>Our app gives you opportunity to saves films you have already watched on your personal movie list. You
+            can now rate your favorites movies, saves the date, you have watched them or added them to your list and see
+            the comments you write. With movie app you will never forget the movie you have already seen.</p>
+        </div>
+        <br/>
+    </div>
+    <br/>
+    <!-- subtitle -->
+    <div class="back-color">
+        <div class="container">
+            <div class="page-header">
+                <h3>How to use it?</h3>
+            </div>
+            <div class="row">
+                <h5>STEP 1:</h5>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="assets/img/icon/intext_icons/movie.png">
+                </div>
+                <div class="col-sm-10">
+                    <p>Watch a movie.</p>
+                </div>
+            </div>
+            <hr style="divider"/>
+            <div class="row">
+                <h5>STEP 2:</h5>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="assets/img/icon/intext_icons/addtolist.png">
+                </div>
+                <div class="col-sm-10">
+                    <p>Add a movie to a list.</p>
+                </div>
+            </div>
+            <hr style="divider"/>
+            <div class="row">
+                <h5>STEP 3:</h5>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="assets/img/icon/intext_icons/search2.png">
+                </div>
+                <div class="col-sm-10">
+                    <p>Find it later.</p>
+                </div>
+            </div>
+            <br/>
+        </div>
+    </div>
+    <br/>
+    <div class="container">
+        <br/>
+        <!-- subtitle -->
+        <div class="page-header">
+            <h3>Who created Movie App?</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="assets/img/other/macreator.jpg" height="250" width="230">
+            </div>
+            <div class="col-sm-8">
+                <p>The application was created by Nik Kovacic in order to end the often forgotten title names of films
+                he had already seen. He is a 23-years old management student from Slovenia
+                <img class="img-responsive slo" src="assets/img/icon/intext_icons/slovenija.png"/>, who is also amateurly
+                involved in the programming of web pages. He likes to spend his free time on the computer or in front
+                of the television watching films and TV series.</p>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="container">
+        <div class="page-header">
+            <h3>Where is our headquarters?</h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2763.0511713226915!2d14.335408015489982!3d46.16963707911564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477ac8bce25246e3%3A0xfad7f159326cf44b!2sHafnerjevo+naselje%2C+4220+%C5%A0kofja+Loka!5e0!3m2!1ssl!2ssi!4v1518115329525" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <p>Country: Slovenia <img class="img-responsive slo" src="assets/img/icon/intext_icons/slovenija.png"/></p>
+                <p>City: Škofja Loka</p>
+                <p>Postal code: 4220</p>
+                <p>Address: Hafnerjevo naselje 1123</p>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}My Movie List{% endblock %}
+
+{% block tab %}
+<ul class="nav navbar-nav">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/vnesi_film">Add Movie</a></li>
+    <li class="active"><a href="/seznam_filmov">My Movie List</a></li>
+</ul>
+{% endblock %}
+
+{% block vsebina %}
+{% if logiran %}
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page_title">Your Movie List</h1>
+        </div>
+        <br>
+        <ol>
+        {% for naslov in vnosi %}
+            {% if naslov.izbrisan == False %}
+                <a href="/podrobnosti/{{ naslov.key.id() }}"><li>{{ naslov.naslov }}
+                    {% if naslov.leto != None %}
+                    - {{ naslov.leto }} </li></a>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        </ol>
+    </div>
+{% else %}
+    <div class="container">
+        <h4>You must be logged in to see your movie list.</h4>
+    </div>
+
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- title & icon -->
+        <link rel="shortcut icon" href="/assets/img/title_icons/icon1.png" type="image/png"/>
+        <title>Movie App | Edit</title>
+        <style>
+.jumbotron {
+  align-items: center;
+  background-image: url('/assets/img/jumbotron/jumbotron.jpg');
+  background-size: 100% 100%;
+  height: 350px;
+  text-shadow: 0.25px 0.25px 0.25px #000000;
+}
+
+.jumbo_text {
+  color: #4DB0B1;
+}
+
+.footer {
+  background-color: #E7F2F2;
+}
+
+.copyright {
+  text-align: right;
+}
+
+.fo_title {
+  font-weight: bold;
+}
+
+p {
+  font-size: 17px;
+}
+
+.form_text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.details_image {
+  max-height: 340px;
+  max-width: 220px;
+}
+
+        </style>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    </head>
+
+    <body>
+        <header class="container">
+            <div class="row">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="col-sm-12">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="/">Movie App</a>
+                            </div>
+                            <ul class="nav navbar-nav">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/vnesi_film">Add Movie</a></li>
+                                <li class="active"><a href="/seznam_filmov">My Movie List</a></li>
+                            </ul>
+                            {% if user %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a>{{ user.nickname() }}</a></li>
+                                <li><a href="{{ logout_url }}"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+                            </ul>
+                            {% else %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{{ login_url }}"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="container">
+            <div class="jumbotron">
+                <div class="row text-center jumbo_text">
+                    <h1>Movie App</h1>
+                    <h3>With our help you will remember every movie you've seen.</h3>
+                </div>
+            </div>
+        </div>
+        <!-- extends block start here -->
+        <div class="container">
+            <div class="page-header">
+                <h1>Edit</h1>
+            </div>
+            <div class="row">
+                <p>In the form below, you can edit the movie info.</p>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-sm-9">
+                    <form method="post" action="/podrobnosti/{{ sporocilo.key.id() }}/uredi">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <p class="form_text">Movie title:</p>
+                            </div>
+                            <div class="col-sm-10">
+                                <input name="naslov" type="text" value="{{ sporocilo.naslov }}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <p class="form_text">Release year:</p>
+                            </div>
+                            <div class="col-sm-10">
+                                <input name="leto" value="{{ sporocilo.leto }}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <p class="form_text">Grade:</p>
+                            </div>
+                            <div class="col-sm-10">
+                                {% if sporocilo.ocena == 1 %}
+                                <select name="ocena">
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                {% elif sporocilo.ocena == 2 %}
+                                <select name="ocena">
+                                    <option value="1">1</option>
+                                    <option value="2" selected="selected">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                {% elif sporocilo.ocena == 3 %}
+                                <select name="ocena">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3" selected="selected">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                {% elif sporocilo.ocena == 4 %}
+                                <select name="ocena">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4" selected="selected">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                {% else %}
+                                <select name="ocena">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5" selected="selected">5</option>
+                                </select>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <p class="form_text">IMDb link:</p>
+                            </div>
+                            <div class="col-sm-10">
+                                <input name="imdb_link" value="{{ sporocilo.imdb }}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <p class="form_text">Trailer link:</p>
+                            </div>
+                            <div class="col-sm-10">
+                                <input name="trailer_link" value="{{ sporocilo.trailer }}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <p class="form_text">Comment:</p>
+                            </div>
+                            <div class="col-sm-10">
+                                <textarea name="komentar" rows="6" cols="22">{{ sporocilo.komentar }}</textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <p class="form_text">Image:</p>
+                            </div>
+                            <div class="col-sm-10">
+                                <input name="slika_url" value="{{ sporocilo.slika }}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-warning">Fix</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <hr class="divider"/>
+            <br/>
+        </div>
+        <!-- extends block end here -->
+        <br/>
+        <br/>
+        <!--Footer-->
+        <footer class="footer">
+            <!--Footer Links-->
+            <div class="container">
+                <div class="row">
+                    <!--First column-->
+                    <div class="col-sm-6">
+                        <h5 class="fo_title">Contact</h5>
+                        <p>Company name: MovieApp.Inc</p>
+                        <p>e-mail: info@movieapp.si</p>
+                        <p>Telephone number: 0038651217398</p>
+                    </div>
+                    <!--/.First column-->
+                    <!--Second column-->
+                    <div class="col-sm-6">
+                        <h5 class="fo_title">Links</h5>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/vnesi_film">Add Movie</a></li>
+                            <li><a href="/seznam_filmov">My movie list</a></li>
+                        </ul>
+                    </div>
+                    <!--/.Second column-->
+                </div>
+                <!--/.Footer Links-->
+                <!--Copyright-->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="copyright">© 2018 Copyright: MovieApp.Inc</p>
+                    </div>
+                </div>
+            </div>
+            <!--/.Copyright-->
+        </footer>
+    </body>
+</html>

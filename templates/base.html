@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- title & icon -->
+        <link rel="shortcut icon" href="/assets/img/icon/title_icons/icon1.png" type="image/png"/>
+        <title>Movie App | {% block title %}{% endblock %}</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    </head>
+
+    <body>
+        <header class="container">
+            <div class="row">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="col-sm-12">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="/">Movie App</a>
+                            </div>
+                            {% block tab %}
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/">Home</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/vnesi_film">Add Movie</a></li>
+                                <li><a href="/seznam_filmov">My Movie List</a></li>
+                            </ul>
+                            {% endblock %}
+                            {% if user %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a>{{ user.nickname() }}</a></li>
+                                <li><a href="{{ logout_url }}"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+                            </ul>
+                            {% else %}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{{ login_url }}"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </nav>
+           </div>
+        </header>
+        <div class="container">
+            <div class="jumbotron">
+                <div class="row text-center jumbo_text">
+                    <h1>Movie App</h1>
+                    <h3>With our help you will remember every movie you've seen.</h3>
+                </div>
+            </div>
+        </div>
+        {% block vsebina %}{% endblock %}
+
+        <br/>
+        <br/>
+        <!--Footer-->
+        <footer class="footer">
+            <!--Footer Links-->
+            <div class="container">
+                <div class="row">
+                    <!--First column-->
+                    <div class="col-sm-6">
+                        <h5 class="fo_title">Contact</h5>
+                        <p>Company name: MovieApp.Inc</p>
+                        <p>e-mail: info@movieapp.si</p>
+                        <p>Telephone number: 0038651217398</p>
+                    </div>
+                    <!--/.First column-->
+                    <!--Second column-->
+                    <div class="col-sm-6">
+                        <h5 class="fo_title">Links</h5>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/vnesi_film">Add Movie</a></li>
+                            <li><a href="/seznam_filmov">My movie list</a></li>
+                        </ul>
+                    </div>
+                    <!--/.Second column-->
+                </div>
+                <!--/.Footer Links-->
+                <!--Copyright-->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="copyright">© 2018 Copyright: MovieApp.Inc</p>
+                    </div>
+                </div>
+            </div>
+            <!--/.Copyright-->
+        </footer>
+    </body>
+</html>
