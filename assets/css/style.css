@@ -1,0 +1,67 @@
+body {
+
+}
+
+.jumbotron {
+  /*display: flex;*/
+  align-items: center;
+  background-image: url('/assets/img/jumbotron/jumbotron.jpg');
+  background-size: 100% 100%;
+  color: #4DB0B1 /*9898e6*/;
+  height: 350px;
+  text-shadow: 0.25px 0.25px 0.25px #000000;
+}
+
+.footer {
+  background-color: #E7F2F2 /*eaeafa*/;
+}
+
+.greenbar{
+
+
+}
+
+.copyright {
+  text-align: right;
+}
+
+.fo_title {
+  font-weight: bold;
+}
+
+.page_title {
+
+}
+
+p {
+  font-size: 17px;
+}
+
+.form_text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.green_but {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+}
+
+.haboutpic {
+  max-height: 128px;
+  max-width: 128px;
+}
+
+.grey-back {
+
+}
+
+.slo {
+  display: inline;
+}
+
+.details_image {
+  max-height: 340px;
+  max-width: 220px;
+}
